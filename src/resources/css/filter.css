@@ -1,0 +1,110 @@
+.bg-job {
+    background-color: #f7f7f7;
+    height: 100vh;
+}
+
+.outer-rectangle {
+    padding: 16px;
+    width: 1350px;
+    margin: 0 auto;
+    height: 70px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-dropdown {
+    padding: 10px 16px;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 30px;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-dropdown:hover {
+    border: 1px solid black;
+}
+
+.category-item {
+    position: relative;
+}
+
+.dropdown-level,
+.dropdown-working-models,
+.dropdown-salary,
+.dropdown-industry {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+}
+
+.dropdown-industry {
+    height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 260px;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
+}
+
+.dropdown-header {
+    padding: 10px;
+    background: white;
+    position: sticky;
+    top: -10px;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+
+}
+
+.dropdown-search {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-btn {
+    border: 1px solid black;
+    background-color: gray;
+    padding: 10px 20px;
+   
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+}
+
+
+
+.checkbox-level {
+    width: 25px;
+    height: 25px;
+}
+
+.btn-salary {
+    border: 1px solid red;
+    outline:  none;
+    color: red;
+    border-radius: 5px;
+  
+}
