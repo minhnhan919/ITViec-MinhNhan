@@ -2,7 +2,8 @@
     background: linear-gradient(269.85deg, #54151C 0%, #121212 54.89%);
     border-bottom: 1px solid gray;
     z-index: 60;
-    position: relative;
+    position: sticky;
+    top:0;
 }
 
 .img-logo {

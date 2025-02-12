@@ -1,0 +1,145 @@
+main {
+    background-color: #f7f7f7;
+    padding: 0 20px;
+}
+
+.container-main {
+    margin: 0 4%;
+    padding: 40px 0 100px 10px;
+    background-color: white;
+    width: 550px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 10;
+}
+
+div.container-main:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.container-main::after {
+    content: 'HOT';
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: #F99119;
+    padding: 2px 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: white;
+    font-weight: 600;
+}
+
+.container-main::before {
+    content: '';
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 5px solid #F99119;
+    transform: rotate(-180deg);
+}
+
+.title-job {
+    width: 300px;
+}
+
+.company-logo {
+    border: 1px solid rgb(180, 180, 180);
+    padding: 18px 0;
+    border-radius: 5px;
+}
+
+.btn {
+    border: 1px solid gray;
+    padding: 2px 8px;
+    border-radius: 40px;
+    font-size: 12px;
+}
+
+.btn:hover {
+    border: 1px solid black;
+}
+
+.selected-job {
+    border: 2px solid red;
+    background-color: #fff5f5;
+}
+
+.job-details {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 770px;
+    margin-right: 20px;
+    height: 100%;
+    overflow: hidden;
+    position: sticky;
+    top: 80px;
+}
+
+.scroll-inner {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 56vh;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
+}
+
+.btn-apply {
+    border-radius: 3px;
+    padding: 8px 20px;
+    background-color: #ed1b2f;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn-apply:hover {
+    opacity: 0.9;
+}
+
+.icon-heart {
+    position: relative;
+
+    cursor: pointer;
+}
+
+.icon-heart::after {
+    content: "Save this job";
+    position: absolute;
+    top: -25px;
+    left: -100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-heart:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.address-details span {
+    color: #414042;
+}
+
+.header-details,
+.address-details,
+.details-reason,
+.details-why,
+.details-desciption,
+.details-your-skill {
+    border-bottom: 1px dotted gray;
+}

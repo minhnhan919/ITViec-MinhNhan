@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Header from './components/header';
 import Search from './components/Location/search';
 import Filter from './components/Filter/filter';
+import InfoItViec from './components/InfoItViec/infoitviec';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Search />
       <Filter />
+      <InfoItViec />
     </>
   )
 }
