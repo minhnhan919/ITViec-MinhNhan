@@ -29,7 +29,7 @@ const InfoItViec = () => {
             className={`container-main rounded p-3 mb-3 ${selectJob === item.id ? "selected-job" : ""}`}
             onClick={() => setSelectJob(item.id)}
           >
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-between align-items-center post-main">
               <span className="text-muted">Posted 1 minute ago</span>
             </div>
             <h5 className="fw-bold title-job">{item.title || "No title available"}</h5>
@@ -54,7 +54,7 @@ const InfoItViec = () => {
           </div>
         ))}
       </div>
-      <div className="job-details">
+      <div className="job-details mb-3">
         {selectedJob ? (
           <div className="w-100">
             <div className="header-details">

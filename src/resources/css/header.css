@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+* {
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
 .nav {
     background: linear-gradient(269.85deg, #54151C 0%, #121212 54.89%);
     border-bottom: 1px solid gray;
     z-index: 60;
     position: sticky;
-    top:0;
+    top: 0;
 }
 
 .img-logo {
@@ -103,7 +113,7 @@ li {
 }
 
 .itcom-m {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .bm {
@@ -126,5 +136,5 @@ li {
 /* Dropdown items */
 .dropdown-item {
     text-decoration: none;
-    
+
 }

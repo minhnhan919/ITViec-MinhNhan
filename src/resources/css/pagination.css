@@ -1,0 +1,15 @@
+.navigation {
+    background-color: #F7F7F7;
+}
+
+.page-link {
+    border-radius: 6px;
+    color: black;
+}
+.page-link:hover {
+    border: 1px solid red;
+    color: red;
+}
+.page-item {
+    margin: 0 10px 0 0 ;
+}

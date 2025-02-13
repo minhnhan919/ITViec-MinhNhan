@@ -3,7 +3,7 @@ import '../../resources/css/filter.css';
 
 function Filter() {
     const [openDropdown, setOpenDropdown] = useState(null);
-
+    const [show, setShow] = useState(false);
     const levels = [
         { id: 1, name: 'Fresher' },
         { id: 2, name: 'Junior' },
@@ -103,8 +103,84 @@ function Filter() {
                             )}
                         </div>
                     </div>
-                    <div>
-                        <button className="filter-btn"><i class="fas fa-filter me-2"></i>Filter</button>
+                    <div className="">
+                        <button className=" filter-btn" onClick={() => setShow(true)}>
+                            <i className="fas fa-filter me-2"></i>Filter
+                        </button>
+
+                        {show && (
+                            <div className="modal fade show d-block" tabIndex="-1">
+                                <div className="modal-dialog" >
+                                    <div className="modal-content" >
+                                        <div className="modal-header ms-3" >
+                                            <h5 className="modal-title fw-bold">Filter </h5>
+                                            <button type="button" className="btn-close" onClick={() => setShow(false)}></button>
+                                        </div>
+                                        <div className="modal-body">
+                                            {/* Nội dung bộ lọc */}
+                                            <div className="mb-3 ms-3">
+                                                <span className='fw-bold'>Level</span>
+                                                <div>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Fresher <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Junior <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Senior <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Manager <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                            <div className="mb-3 ms-3">
+                                                <span className='fw-bold'>Working Model</span>
+                                                <div>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>At Office <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Remote<i class="fa fa-plus ms-2" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Hybird<i class="fa fa-plus ms-2" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                            <div className="mb-5 ms-3 ">
+                                                <span className=" fw-bold">Salary</span>
+                                                <div className="d-flex align-content-center my-3 ">
+                                                    <span className='me-5 fw-bold'>500$ - 10,000$</span><input type="range" className="form-range w-75 input-ranger" min="0" max="1000" />
+                                                </div>
+                                            </div>
+                                            <div className='mb-3 ms-3'>
+                                                <span className='fw-bold'>Industry</span>
+                                                <div className='filter-industry mt-3'>
+                                                    <div className="filter-header ">
+                                                        <input type='text' placeholder='Search Industry' className="filter-search" />
+                                                    </div>
+                                                    <div className="filter-list">
+                                                        {industry.map(item => (
+                                                            <a key={item.id} href="#" className="filter-item">
+                                                                <input type='checkbox' name='level' className="checkbox-level me-2" />
+                                                                {item.name}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="mb-4 ms-3 ">
+                                                <span className=" fw-bold">Company Type</span>
+                                                <span className='fw-bold'>Level</span>
+                                                <div>
+                                                    <button className='btn-filter-skill ms-1 m-3 my-2  pe-3 py-1 ps-3'>IT Outsourcing <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>IT Products <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>Headnut<i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>IT Service and IT Consulting <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>Non-IT <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer d-flex justify-content-between mx-4">
+                                            <button className="btn-reset-filter" onClick={() => setShow(false)}>Reset filter</button>
+                                            <button className="btn-apply-filter">Apply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Overlay khi mở popup */}
+                        {show && <div className="modal-backdrop fade show" onClick={() => setShow(false)}></div>}
                     </div>
                 </div>
             </div>

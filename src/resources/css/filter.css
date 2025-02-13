@@ -1,6 +1,6 @@
 .bg-job {
     background-color: #f7f7f7;
-    padding-bottom :25px;
+    padding-bottom: 25px;
 }
 
 .outer-rectangle {
@@ -12,7 +12,7 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-}   
+}
 
 .btn-dropdown {
     padding: 10px 16px;
@@ -105,6 +105,119 @@
     border-radius: 5px;
 
 }
+
 .btn-salary:hover {
     opacity: 0.6;
+}
+
+.modal-dialog {
+    max-width: 800px;
+    width: 800px;
+    height: 92%;
+}
+
+.modal-body {
+    overflow-y: auto;
+
+}
+
+.modal-content {
+    height: 100%;
+}
+
+.btn-filter-skill {
+    border: 1px solid gray;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.btn-filter-skill:hover {
+    border: 1px solid black;
+}
+
+.input-ranger {
+    border: 1px solid gray;
+    border-radius: 25px;
+    padding: 3px;
+}
+
+.filter-industry {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 720px;
+    overflow: hidden;
+    background: white;
+}
+
+.filter-header {
+    margin-bottom: 10px;
+}
+
+.filter-search {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.filter-list {
+    height: 200px;
+    max-width: 900px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.filter-item:hover {
+    background-color: #f5f5f5;
+}
+
+.checkbox-level {
+    margin-right: 8px;
+}
+
+
+.filter-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 5px;
+}
+
+.filter-list::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+.btn-reset-filter {
+    border:none;
+    outline: none;
+    background-color: white;
+    color: #0E2EED;
+    font-weight: 600;
+}
+.btn-apply-filter {
+    border: none;
+    outline: none;
+    padding:10px 80px;
+    background-color: #ed1b2f;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-apply-filter:hover {
+    opacity: 0.8;
+
 }

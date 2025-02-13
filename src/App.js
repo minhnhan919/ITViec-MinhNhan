@@ -7,6 +7,8 @@ import Header from './components/header';
 import Search from './components/Location/search';
 import Filter from './components/Filter/filter';
 import InfoItViec from './components/InfoItViec/infoitviec';
+import Footer from './components/footer';
+import Pagination from './components/Pagination/pagination';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Search />
       <Filter />
       <InfoItViec />
+      <Pagination />
+      <Footer />
     </>
   )
 }
