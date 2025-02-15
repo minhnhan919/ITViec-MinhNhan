@@ -8,14 +8,15 @@ function Search() {
     return (
         <div className="bg-gradient-search">
             <div className="d-flex justify-content-center align-items-center pt-4 p-search">
-                <div className="dropdown-menu-city">
+                <div className="dropdown-menu-city ">
                     <button className="dropbtn btn-city" onClick={() => { setIsOpen(!isOpen) }} >
                         <i class="fa fa-map-marker-alt mx-2 map-icon" aria-hidden="true"></i>
                         All Cities <i className="fas fa-chevron-down citi-icon"></i>
                     </button>
+                    {isOpen && <div className="overlay" onClick={() => {setIsOpen(false)}}></div>} 
                     {isOpen && (
                         <div className='dropdown-location-city bg-black'>
-                            <div className="dropdown-content item-dropdown-location-city">
+                            <div className="dropdown-content item-dropdown-location-city ">
                                 <a href="#" className="item-location-city">All Cities</a>
                                 <a href="#" className="item-location-city">Ho Chi Minh </a>
                                 <a href="#" className="item-location-city">Ha Noi </a>
@@ -25,7 +26,7 @@ function Search() {
                         </div>
                     )}
                 </div>
-                <input type="text" placeholder="Enter Keyword skill (Java, iOs...), job title, company..." maxLength={100} className="in-search"></input>
+                <input type="text" placeholder="Enter Keyword skill (Java, iOs...), job title, company..." maxLength={100} className="in-search "></input>
                 <button type="submit" className="btn-search "><i class="fa fa-search me-2" aria-hidden="true"></i>Search</button>
             </div>
             <div className='container-slide-show d-flex justify-content-center align-items-center'>

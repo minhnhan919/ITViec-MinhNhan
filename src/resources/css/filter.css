@@ -221,3 +221,8 @@
     opacity: 0.8;
 
 }
+.btn-filter-skill:hover{
+    border: 1px solid #ed1b2f;
+    background-color: #FFDFDF;
+    color: #ed1b2f;
+}

@@ -3,6 +3,7 @@ import '../../resources/css/filter.css';
 
 function Filter() {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [clickFilter, setClickFilter] = useState(null)
     const [show, setShow] = useState(false);
     const levels = [
         { id: 1, name: 'Fresher' },
@@ -31,6 +32,15 @@ function Filter() {
         setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
     };
 
+    const toggleClickFilter = (ClickFilter) => {
+        setClickFilter(clickFilter === ClickFilter ? null : ClickFilter);
+    }
+    const [salary, setSalary] = useState([500, 10000]);
+
+    const handleChange = (e) => {
+        const value = Number(e.target.value);
+        setSalary([500, value]);
+    };
     return (
         <div className='bg-job'>
             <div className="py-5 mb-4"></div>
@@ -121,7 +131,7 @@ function Filter() {
                                             <div className="mb-3 ms-3">
                                                 <span className='fw-bold'>Level</span>
                                                 <div>
-                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Fresher <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3' >Fresher <i class="fa fa-plus" aria-hidden="true"></i></button>
                                                     <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Junior <i class="fa fa-plus" aria-hidden="true"></i></button>
                                                     <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Senior <i class="fa fa-plus" aria-hidden="true"></i></button>
                                                     <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Manager <i class="fa fa-plus" aria-hidden="true"></i></button>
@@ -135,11 +145,23 @@ function Filter() {
                                                     <button className='btn-filter-skill ms-1 m-3 pe-3 py-1 ps-3'>Hybird<i class="fa fa-plus ms-2" aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
-                                            <div className="mb-5 ms-3 ">
-                                                <span className=" fw-bold">Salary</span>
-                                                <div className="d-flex align-content-center my-3 ">
-                                                    <span className='me-5 fw-bold'>500$ - 10,000$</span><input type="range" className="form-range w-75 input-ranger" min="0" max="1000" />
+                                            <div className="mb-5 ms-3">
+                                                <span className="fw-bold">Salary</span>
+                                                <div className="d-flex align-items-center my-3 ">
+                                                    <span className="me-3 fw-bold">{salary[0]}$ - {salary[1]}$</span>
+                                                    <input
+                                                        type="range"
+                                                        className="form-range w-75 input-range"
+                                                        min="500"
+                                                        max="10000"
+                                                        value={salary[1]}
+                                                        onChange={handleChange} />
                                                 </div>
+                                                <style>
+                                                    {`.input-range {
+                                                        accent-color: green;
+                                                    }`}
+                                                </style>
                                             </div>
                                             <div className='mb-3 ms-3'>
                                                 <span className='fw-bold'>Industry</span>
@@ -166,7 +188,7 @@ function Filter() {
                                                     <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>Headnut<i class="fa fa-plus" aria-hidden="true"></i></button>
                                                     <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>IT Service and IT Consulting <i class="fa fa-plus" aria-hidden="true"></i></button>
                                                     <button className='btn-filter-skill ms-1 m-3 my-2 pe-3 py-1 ps-3'>Non-IT <i class="fa fa-plus" aria-hidden="true"></i></button>
-                                                
+
                                                 </div>
                                             </div>
                                         </div>
@@ -178,8 +200,6 @@ function Filter() {
                                 </div>
                             </div>
                         )}
-
-                        {/* Overlay khi mở popup */}
                         {show && <div className="modal-backdrop fade show" onClick={() => setShow(false)}></div>}
                     </div>
                 </div>

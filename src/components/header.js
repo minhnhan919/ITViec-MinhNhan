@@ -62,11 +62,18 @@ function Header() {
             console.error("Error fetching data:", error);
         }
     };
+
     const [dropMenu, setDropMenu] = useState(null)
 
     const toggleDropMenu = (dropdownName) => {
         setDropMenu(dropMenu === dropdownName ? null : dropdownName)
     }
+
+    const filterSkill = data ? data.filter((item) => item.parent === 1) : [];
+    const filterTitle = data ? data.filter((item) => item.parent === 11) : [];
+    const filterCompany = data ? data.filter((item) => item.parent === 12) : [];
+    const filterCity = data ? data.filter((item) => item.parent === 13) : [];
+
 
     useEffect(() => {
         fetchData();
@@ -87,32 +94,57 @@ function Header() {
                         </button>
                         {AisOpen && (
                             <div className='container-dropdown bg-black'>
-                                <div className="dropdown-content item-dropdown"
-                                    onMouseEnter={() => toggleDropMenu('skill')}
-                                    onMouseLeave={() => handleMouseLeave('skill')}>
-                                    <a href="#" className='item-content'>Jobs by Skill <i className="fas fa-chevron-right "></i>
-                                    </a>
-                                    {
-                                        dropMenu === "skill" && (
-                                            <div className="dropdown-menu">
-                                                <a href="#" className='dropdown-item' style={{
-                                                    color: '#A6A6A6'
-                                                }}>Java</a>
-                                                <a href="#" className='dropdown-item' style={{
-                                                    color: '#A6A6A6'
-                                                }}>PHP</a>
-                                                <a href="#" className='dropdown-item' style={{
-                                                    color: '#A6A6A6'
-                                                }}>NodeJS</a>
-                                                <a href="#" className='dropdown-item' style={{
-                                                    color: '#A6A6A6'
-                                                }}>ReactJS</a>
-                                            </div>
-                                        )
-                                    }
-                                    <a href="#" className='item-content'>Jobs by Title <i className="fas fa-chevron-right "></i></a>
-                                    <a href="#" className='item-content'>Jobs by Company <i className="fas fa-chevron-right all-m"></i></a>
-                                    <a href="#" className='item-content'>Jobs by City <i className="fas fa-chevron-right "></i></a>
+                                <div className="dropdown-content item-dropdown">
+                                    <div
+                                        className='item-content'
+                                        onMouseEnter={() => toggleDropMenu('skill')}
+                                        onMouseLeave={() => handleMouseLeave('skill')}>
+                                        <a href="#" className='item'>Jobs by Skill <i className="fas fa-chevron-right "></i>
+                                        </a>
+                                        {
+                                            dropMenu === "skill" && (
+                                                <div className="dropdown-menu">
+                                                    {filterSkill.map((item) => (
+                                                        <a key={item.id} href='#' className='dropdown-item' style={{
+                                                            color: "#A6A6A6"
+                                                        }}>{item.name_category}</a>
+                                                    ))}
+                                                </div>
+                                            )
+                                        }
+
+                                    </div>
+                                    <div
+                                        className='item-content'
+                                        onMouseEnter={() => toggleDropMenu('title')}
+                                        onMouseLeave={() => handleMouseLeave('title')}>
+                                        <a href="#" className='item'>Jobs by Title <i className="fas fa-chevron-right "></i>
+                                            {
+                                                dropMenu === "title" && (
+                                                    <div className="dropdown-menu">
+                                                        {filterTitle.map((item) => (
+                                                            <a key={item.id} href='#' className='dropdown-item' style={{
+                                                                color: "#A6A6A6"
+                                                            }}>{item.name_category}</a>
+                                                        ))}
+                                                    </div>
+                                                )
+                                            }
+                                        </a>
+                                    </div>
+                                    <div
+                                        className='item-content'
+                                        onMouseEnter={() => toggleDropMenu('company')}
+                                        onMouseLeave={() => handleMouseLeave('company')}>
+                                        <a href="#" className='item'>Jobs by Company <i className="fas fa-chevron-right all-m"></i></a>
+                                    </div>
+                                    <div
+                                        className='item-content'
+                                        onMouseEnter={() => toggleDropMenu('city')}
+                                        onMouseLeave={() => handleMouseLeave('city')}>
+                                        <a href="#" className='item'>Jobs by City <i className="fas fa-chevron-right "></i></a>
+                                    </div>
+
                                 </div>
                             </div>
                         )}
@@ -128,8 +160,12 @@ function Header() {
                         {BisOpen && (
                             <div className='container-dropdown bg-black'>
                                 <div className="dropdown-content item-dropdown ">
-                                    <a href="#" className='item-content text-sm'>Vietnam Best IT Companies <i className="fas fa-chevron-right itcom-m"></i></a>
-                                    <a href="#" className='item-content'>Company Reviews </a>
+                                    <div className='item-content'>
+                                        <a href="#" className='item text-sm'>Vietnam Best IT Companies <i className="fas fa-chevron-right itcom-m"></i></a>
+                                    </div>
+                                    <div className='item-content'>
+                                        <a href="#" className='item'>Company Reviews </a>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -144,11 +180,22 @@ function Header() {
                         </button>
                         {CisOpen && (
                             <div className='container-dropdown bg-black'>
-                                <div className="dropdown-content item-dropdown ">
-                                    <a href="#" className='item-content'>IT Salary Report <i className="fas fa-chevron-right bm"></i></a>
-                                    <a href="#" className='item-content'>IT Career </a>
-                                    <a href="#" className='item-content'>Applying & Career Up</a>
-                                    <a href="#" className='item-content'>IT Expertise</a>
+                                <div className="dropdown-content item-dropdown">
+                                    <div className='item-content'>
+                                        <a href="#" className='item'>IT Salary Report <i className="fas fa-chevron-right bm"></i></a>
+                                    </div>
+                                    <div className='item-content'>
+                                        <a href="#" className='item'>IT Career </a>
+
+                                    </div>
+                                    <div className='item-content'>
+                                        <a href="#" className='item'>Applying & Career Up</a>
+
+                                    </div>
+                                    <div className='item-content'>
+                                        <a href="#" className='item'>IT Expertise</a>
+
+                                    </div>
 
                                 </div>
                             </div>
@@ -162,7 +209,7 @@ function Header() {
                 <li><a href="#" ><span>EN</span></a></li>
                 <li><a href="#"><span>VI</span></a></li>
             </ul>
-        </nav>
+        </nav >
     );
 }
 
