@@ -30,7 +30,6 @@ function PageItViec() {
             <Search onSearchChange={setFilteredJobs} dataJob={dataJob} />
             <Filter dataJob={dataJob} onFilterChange={setFilteredJobs} />
             <InfoItViec dataJob={filteredJobs} />
-            <Pagination />
             <Footer />
         </>
     );
