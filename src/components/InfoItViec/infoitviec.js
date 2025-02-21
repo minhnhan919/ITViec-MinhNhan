@@ -1,36 +1,37 @@
 import { useEffect, useState } from "react";
 import "../../resources/css/infoitviec.css";
 
-const InfoItViec = () => {
-  const [data, setData] = useState([]);
+const InfoItViec = ({ dataJob }) => {
   const [selectJob, setSelectJob] = useState(null);
+  const selectedJob = dataJob.find((job) => job.id === selectJob);
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch("https://67ab39535853dfff53d69e09.mockapi.io/api/v1/cty");
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+  const getTimeAgo = (createAt) => {
+    const createdAt = new Date(createAt);
+    const now = new Date();
+    const diffMinutes = Math.floor((now - createdAt) / (1000 * 60));
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffMinutes < 1) {
+      return "Just now";
+    } else if (diffMinutes < 60) {
+      return `Posted ${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+    } else if (diffHours < 24) {
+      return `Posted ${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+    } else {
+      return `Posted ${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const selectedJob = data.find((job) => job.id === selectJob);
-
   return (
-    <main className="d-flex justify-content-center">
-      <div className="d-flex justify-content-center flex-column me-5">
-        {data.map((item) => (
+    <main className="d-flex justify-content-center main-job">
+      <div className="d-flex flex-column me-5 info-job">
+        {dataJob.map((item) => (
           <div key={item.id}
-            className={`container-main rounded p-3 mb-3 ${selectJob === item.id ? "selected-job" : ""}`}
-            onClick={() => setSelectJob(item.id)}
-          >
-            <div className="d-flex justify-content-between align-items-center post-main">
-              <span className="text-muted">Posted 1 minute ago</span>
+            className={`${item.status === 2 ? 'container-super' : 'container-main'} rounded p-3 mb-3 ${selectJob === item.id ? "selected-job" : ""}`}
+            onClick={() => setSelectJob(item.id)}>
+            <div className={`d-flex justify-content-between align-items-center ${item.status == 2 ? "post-super" : "post-main"}`}>
+              <span className="text-muted">{getTimeAgo(item.create_at)}</span>
             </div>
             <h5 className="fw-bold title-job">{item.title || "No title available"}</h5>
             <div className="d-flex align-items-center">
@@ -42,7 +43,7 @@ const InfoItViec = () => {
               <a href="#" className="fw-bold text-primary text-secondary border-1">Sign in to view salary</a>
             </p>
             <div className="d-flex flex-column" style={{ color: "#414042" }}>
-              <span>🏢 {item.working_models}</span>
+              <span>🏢 {item.models}</span>
               <span><i className="fa fa-map-marker-alt me-2"></i> {item.address}</span>
             </div>
             <div className="mt-2">
@@ -50,6 +51,17 @@ const InfoItViec = () => {
               <span className="btn me-1">NodeJS</span>
               <span className="btn me-1">JavaScript</span>
               <span className="btn me-1">C++</span>
+            </div>
+            <div className="mt-3">
+              {item.status === 2 && item.attractive?.length > 0 ? (
+                <ul className="attractive">
+                  {item.attractive?.map((attractiveItem, index) => (
+                    <li key={index}>{attractiveItem}</li>
+                  ))}
+                </ul>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         ))}
@@ -79,8 +91,8 @@ const InfoItViec = () => {
                 <span style={{ fontSize: '14px' }}>
                   <i className="fa fa-map-marker-alt me-2"></i> {selectedJob.address}
                 </span>
-                <span className="mt-2" style={{ fontSize: '14px' }}>🏢 {selectedJob.working_models}</span>
-                <span className="mt-2" style={{ fontSize: '14px' }}><i className="fa-regular fa-clock me-2 mb-3"></i> 2 Hours</span>
+                <span className="mt-2" style={{ fontSize: '14px' }}>🏢 {selectedJob.models}</span>
+                <span className="mt-2" style={{ fontSize: '14px' }}><i className="fa-regular fa-clock me-2 mb-3"></i>{getTimeAgo(selectedJob.create_at)}</span>
               </div>
               <div className="details-reason">
                 <h5 className="fw-bold mt-4">Top 3 reasons to join us</h5>
@@ -97,9 +109,9 @@ const InfoItViec = () => {
               <div className="details-desciption">
                 <h5 className="fw-bold mt-4">Job description</h5>
                 {selectedJob.job_description?.length > 0 ? (
-                  <ul className="ps-3">
+                  <ul className="ps-4">
                     {selectedJob.job_description.map((item, index) => (
-                      <li key={index} className="my-1">- {item}</li>
+                      <li key={index} className="my-1">{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -109,9 +121,9 @@ const InfoItViec = () => {
               <div className="details-your-skill">
                 <h5 className="fw-bold mt-4">Your skills and experience</h5>
                 {selectedJob.requirements?.length > 0 ? (
-                  <ul className="ps-3">
+                  <ul className="ps-4">
                     {selectedJob.requirements.map((item, index) => (
-                      <li key={index} className="my-1 w-100">- {item}</li>
+                      <li key={index} className="my-1 w-100">{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -121,9 +133,9 @@ const InfoItViec = () => {
               <div className="details-why">
                 <h5 className="fw-bold mt-4">Why you'll love working here</h5>
                 {selectedJob.benefits?.length > 0 ? (
-                  <ul className="ps-3">
+                  <ul className="ps-4">
                     {selectedJob.benefits.map((item, index) => (
-                      <li key={index} className="my-1 w-100">- {item}</li>
+                      <li key={index} className="my-1 w-100">{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -133,9 +145,9 @@ const InfoItViec = () => {
               <div className="details-country">
                 <h5 className="fw-bold mt-4">ARIS Vietnam</h5>
                 {selectedJob.benefits?.length > 0 ? (
-                  <ul className="ps-3">
+                  <ul className="ps-4">
                     {selectedJob.benefits.map((item, index) => (
-                      <li key={index} className="my-1 w-100">- {item}</li>
+                      <li key={index} className="my-1 w-100">{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -145,8 +157,8 @@ const InfoItViec = () => {
             </div>
           </div>
         ) : (
-          <>
-          </>
+          <div className="">
+          </div>
         )}
       </div>
     </main>

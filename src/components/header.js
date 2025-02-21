@@ -2,6 +2,7 @@ import logo from '../resources/img/logo-itviec.png';
 import React, { useEffect, useState } from "react";
 import '../resources/css/header.css'
 function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [AisOpen, setAIsOpen] = useState(false);
     const [BisOpen, setBIsOpen] = useState(false);
     const [CisOpen, setCIsOpen] = useState(false);
@@ -74,7 +75,6 @@ function Header() {
     const filterCompany = data ? data.filter((item) => item.parent === 12) : [];
     const filterCity = data ? data.filter((item) => item.parent === 13) : [];
 
-
     useEffect(() => {
         fetchData();
     }, []);
@@ -82,10 +82,19 @@ function Header() {
     return (
         <nav className="nav nav-flex">
             <ul className="nav-flex nav-left">
-                <a href="#">
-                    <img src={logo} alt="Logo ITviec" width={70} className="img-logo" />
-                </a>
-                <li className='ms-4'>
+                <div className='mx'>
+                    <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+                    </button>
+                </div>
+                <div className='logo-itviec '>
+                    <a href="#" >
+                        <img src={logo} alt="Logo ITviec" width={70} className="img-logo" />
+                    </a>
+                </div>
+
+
+                <li className={`menu-jobs ms-4 ${isMenuOpen ? 'open' : ''}`} >
                     <div className="dropdown"
                         onMouseEnter={() => handleMouseEnter('A')}
                         onMouseLeave={() => handleMouseLeave('A')}>
@@ -112,7 +121,6 @@ function Header() {
                                                 </div>
                                             )
                                         }
-
                                     </div>
                                     <div
                                         className='item-content'
@@ -194,9 +202,7 @@ function Header() {
                                     </div>
                                     <div className='item-content'>
                                         <a href="#" className='item'>IT Expertise</a>
-
                                     </div>
-
                                 </div>
                             </div>
                         )}
@@ -208,6 +214,9 @@ function Header() {
                 <li><a href="#">Sign in/Sign up</a></li>
                 <li><a href="#" ><span>EN</span></a></li>
                 <li><a href="#"><span>VI</span></a></li>
+            </ul>
+            <ul className='nav-flex nav-right d-none sign-in'>
+                <li><a href="#" >Sign In</a></li>
             </ul>
         </nav >
     );

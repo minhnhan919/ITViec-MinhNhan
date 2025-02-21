@@ -11,6 +11,18 @@ main {
     border-radius: 5px;
     position: relative;
     z-index: 10;
+    overflow: hidden;
+}
+
+.container-super {
+    margin: 0 4%;
+    padding: 40px 0 100px 10px;
+    background-color: #FFF4E9;
+    width: 550px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
 }
 
 div.container-main:hover {
@@ -19,6 +31,10 @@ div.container-main:hover {
 }
 
 .post-main {
+    position: relative;
+}
+
+.post-super {
     position: relative;
 }
 
@@ -46,6 +62,32 @@ div.container-main:hover {
     border-right: 10px solid transparent;
     border-bottom: 5px solid #F99119;
     transform: rotate(-180deg);
+}
+
+.post-super::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    right: -16px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 5px solid #ed1b2f;
+    transform: rotate(-180deg);
+}
+
+.post-super::after {
+    content: '🔥 SUPER HOT';
+    position: absolute;
+    top: 0px;
+    right: -16px;
+    background-color: #ed1b2f;
+    padding: 2px 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: white;
+    font-weight: 600;
+    z-index: -1;
 }
 
 .title-job {
@@ -172,4 +214,37 @@ div.container-main:hover {
 .details-desciption,
 .details-your-skill {
     border-bottom: 1px dotted gray;
+}
+
+@media (max-width: 1024px) {
+    .job-details {
+        display: none;
+    }
+
+    .info-job {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .container-main {
+        width: 100%;
+        margin-left: 20px;
+        padding-right: 0px;
+
+    }
+
+    .main-job {
+        padding-right: 10px;
+    }
+
+    .attractive {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.attractive {
+    border-top: 1px dotted gray;
+    padding: 10px 5px 5px 15px;
+
 }

@@ -15,19 +15,29 @@
 }
 
 .btn-dropdown {
-    padding: 10px 16px;
-    border: 1px solid rgb(180, 180, 180);
-    border-radius: 30px;
     background: white;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
-.btn-dropdown:hover {
-    border: 1px solid black;
+.info-disable-check {
+    border: 1px solid #A6A6A6;
+    padding: 10px 16px;
+    border-radius: 30px;
+}
+
+.info-checked {
+    border: 1px solid red;
+    padding: 10px 16px;
+    border-radius: 30px;
+    color: #ed1b2f;
+    background-color: #FFDFDF;
 }
 
 .category-item {
     position: relative;
+    z-index: 40;
 }
 
 .dropdown-level,
@@ -37,7 +47,6 @@
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 1000;
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -73,7 +82,6 @@
 
 .dropdown-item:hover {
     background-color: #f0f0f0;
-
 }
 
 .dropdown-search {
@@ -85,7 +93,6 @@
 }
 
 .filter-btn {
-    border: 1px solid black;
     background-color: gray;
     padding: 10px 20px;
     border-radius: 8px;
@@ -202,16 +209,17 @@
 }
 
 .btn-reset-filter {
-    border:none;
+    border: none;
     outline: none;
     background-color: white;
     color: #0E2EED;
     font-weight: 600;
 }
+
 .btn-apply-filter {
     border: none;
     outline: none;
-    padding:10px 80px;
+    padding: 10px 80px;
     background-color: #ed1b2f;
     color: white;
     border-radius: 5px;
@@ -221,8 +229,45 @@
     opacity: 0.8;
 
 }
-.btn-filter-skill:hover{
+
+.btn-filter-skill.active {
     border: 1px solid #ed1b2f;
     background-color: #FFDFDF;
     color: #ed1b2f;
+}
+
+/* 150% */
+@media (max-width: 1024px) {
+    .bg-none {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .category {
+        display: none !important;
+    }
+
+    .bg-job {
+        padding: 0 40px 20px 40px;
+    }
+
+    .outer-rectangle {
+        width: 100% !important;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+}
+
+/* 125% */
+@media (max-width: 1366px) {
+    .bg-job {
+        padding: 0 40px 20px 40px;
+    }
+
+    .outer-rectangle {
+        width: 1130px;
+    }
+
 }
