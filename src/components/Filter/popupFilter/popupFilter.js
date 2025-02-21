@@ -33,7 +33,6 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
         industry: []
     });
 
-    // Cập nhật selectedFilters khi các props thay đổi
     useEffect(() => {
         setSelectedFilters({
             level: selectedLevels || [],
@@ -42,7 +41,6 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
         });
     }, [selectedLevels, selectedModels, selectedIndustries]);
 
-    // Hàm xử lý khi người dùng thay đổi filter
     const handleToggleFilter = (type, id) => {
         setSelectedFilters(prev => ({
             ...prev,
@@ -52,7 +50,6 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
         }));
     };
 
-    // Hàm xử lý khi người dùng thay đổi salary
     const handleChangeSalary = (event) => {
         const newSalary = parseInt(event.target.value, 10);
         if (!isNaN(newSalary) && newSalary >= 500 && newSalary <= 10000) {
@@ -60,7 +57,6 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
         }
     };
 
-    // Hàm áp dụng filter
     const handleApplyFilter = () => {
         handleChange(
             {
@@ -73,7 +69,6 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
         setShow(false);
     };
 
-    // Hàm reset filter
     const handleReset = () => {
         setSelectedFilters({ level: [], workingModel: [], industry: [], companyType: [] });
         setSalary([500, 10000]);
@@ -154,6 +149,9 @@ function PopUpFilter({ count, handleChange, selectedLevels, selectedModels, sele
                                 </div>
 
                                 <div className="filter-list">
+                                    <div >
+                                        <input type='text' placeholder='Search Industry' className="dropdown-search" />
+                                    </div>
                                     {industries.map(ind => (
                                         <label key={ind.id} className="filter-item">
                                             <input

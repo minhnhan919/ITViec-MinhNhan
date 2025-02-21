@@ -116,9 +116,9 @@
 }
 
 .info-grab-slide {
-    padding: 0 80px;
+    padding: 0 0px 0 80px;
     position: relative;
-    width: 1200px;
+    width: 600px;
 }
 
 .logo-grab {

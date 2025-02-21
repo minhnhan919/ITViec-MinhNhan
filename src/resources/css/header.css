@@ -51,6 +51,10 @@
     align-items: center;
 }
 
+.nav-menu {
+    display: none;
+}
+
 .nav-flex li:last-child a span {
     position: relative;
     padding: 0 5px;
@@ -138,6 +142,10 @@
 /* Dropdown items */
 .dropdown-item {
     text-decoration: none;
+}
+
+.nav-container {
+    display: none;
 }
 
 /* Responsive styles */
@@ -276,27 +284,54 @@
 }
 
 @media (max-width: 1024px) {
-    .nav-flex {
-        flex-direction: column;
-        align-items: flex-start;
+    .logo-dropmenu {
+        display: none;
+    }
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    .fa-times {
+        position: absolute;
+        top: 30%;
+        left: 18%;
+    }
+    .container-dropdown{
+        margin: 0;
+    }
+    .item-content  {
+        padding: 10px 0px 10px 10px;
+    }
+
+    .menu-jobs.open {
+        display: block !important; /* Khi mở menu, hiển thị */
+        
     }
 
     .nav-menu {
-        display: inline !important;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-left,
-    .nav-right {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin: 0px 20px;
         width: 100%;
     }
 
-    .nav-left li,
-    .nav-right li {
-        display: block;
-        margin-right: 0;
-        padding: 10px 0;
+    .logo-itviec {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .sign-in {
+        display: inline !important;
+        position: absolute;
+        right: 0%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
     }
 
     .nav-right {
@@ -305,99 +340,31 @@
 
     .menu-toggle {
         display: block;
-        position: absolute;
-        left: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .sign-in {
-        display: block !important;
-        position: absolute;
-        left: 87%;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        white-space: nowrap;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
     }
 
     .dropdown {
-        display: none;
-    }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        position: relative;
-        padding: 20px 0;
-    }
-
-    .logo-itviec {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block; 
         position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
+        background-color: black;
+        white-space: nowrap;
+    }
+    .item-dropdown {
+        
     }
 
-    .logo-itviec img {
-        width: 100px;
-    }
-
-    .menu-jobs {
-        display: none;
-        position: absolute;
-        left: 0%;
-        top: 100%;
-        background: black;
-
-    }
-
-    .fa-chevron-down {
+    .nav-left {
         display: none;
     }
 
-    .menu-jobs.open {
-        display: block;
-        width: 30%;
-        margin: 0px !important;
-        height: 100%;
-        padding: 15px;
+    .container-dropdown {
+        display: none; /* Mặc định ẩn dropdown */
     }
 
-    .menu-jobs.open .dropdown {
-        display: block;
-        width: 100%;
-    }
-
-    .menu-jobs.open .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .menu-jobs.open .item-content {
-        width: 100%;
-        border-right: none;
-    }
-
-    .menu-jobs.open .dropdown-menu {
-        width: 100%;
-        position: static;
-        grid-template-columns: 1fr;
-    }
-
-    .menu-jobs.open .fa-chevron-right {
-        margin-left: 0;
-    }
-
-    .menu-jobs.open .all-m,
-    .menu-jobs.open .itcom-m,
-    .menu-jobs.open .bm {
-        margin-left: 0;
+    .menu-jobs.open .container-dropdown {
+        display: block !important; /* Hiển thị khi menu được mở */
     }
 }

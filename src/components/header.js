@@ -11,6 +11,11 @@ function Header() {
     const [timeOutA, setTimeOutA] = useState(null);
     const [timeOutB, setTimeOutB] = useState(null);
     const [timeOutC, setTimeOutC] = useState(null);
+    const [activeDropdown, setActiveDropdown] = useState(null);
+
+    const toggleDropdown = (menu) => {
+        setActiveDropdown(activeDropdown === menu ? null : menu);
+    };
 
     const handleMouseEnter = (menu) => {
         switch (menu) {
@@ -82,18 +87,9 @@ function Header() {
     return (
         <nav className="nav nav-flex">
             <ul className="nav-flex nav-left">
-                <div className='mx'>
-                    <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
-                    </button>
-                </div>
-                <div className='logo-itviec '>
-                    <a href="#" >
-                        <img src={logo} alt="Logo ITviec" width={70} className="img-logo" />
-                    </a>
-                </div>
-
-
+                <a href="#" className='logo-dropmenu'>
+                    <img src={logo} alt="Logo ITviec" width={70} className="img-logo" />
+                </a>
                 <li className={`menu-jobs ms-4 ${isMenuOpen ? 'open' : ''}`} >
                     <div className="dropdown"
                         onMouseEnter={() => handleMouseEnter('A')}
@@ -209,14 +205,80 @@ function Header() {
                     </div>
                 </li>
             </ul>
+            {/* menu dọc */}
+            <ul className="nav-menu">
+                <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+                </button>
+                <div className='logo-itviec'>
+                    <a href="#">
+                        <img src={logo} alt="Logo ITviec" width={70} className="img-logo" />
+                    </a>
+                </div>
+                <li className={`menu-jobs ms-4 ${isMenuOpen ? 'open' : ''}`} >
+                    <div className="dropdown">
+                        {
+                            isMenuOpen && (
+                                <div className='menu-inner'>
+                                    <button className="dropbtn btn-jobs item-content">
+                                        All Jobs 
+                                    </button>
+                                    <div className='container-dropdown bg-black'>
+                                        <div className="dropdown-content item-dropdown">
+                                            <div className='item-content'>
+                                                <a href="#" className='item' onClick={() => toggleDropMenu('skill')}>
+                                                    Jobs by Skill <i className="fas fa-chevron-right "></i>
+                                                </a>
+                                                {dropMenu === "skill" && (
+                                                    <div className="dropdown-menu">
+                                                        {filterSkill.map((item) => (
+                                                            <a key={item.id} href='#' className='dropdown-item' style={{ color: "#A6A6A6" }}>
+                                                                {item.name_category}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className='item-content'>
+                                                <a href="#" className='item' onClick={() => toggleDropMenu('title')}>
+                                                    Jobs by Title <i className="fas fa-chevron-right "></i>
+                                                </a>
+                                                {dropMenu === "title" && (
+                                                    <div className="dropdown-menu">
+                                                        {filterTitle.map((item) => (
+                                                            <a key={item.id} href='#' className='dropdown-item' style={{ color: "#A6A6A6" }}>
+                                                                {item.name_category}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className='item-content'>
+                                                <a href="#" className='item' onClick={() => toggleDropMenu('company')}>
+                                                    Jobs by Company <i className="fas fa-chevron-right all-m"></i>
+                                                </a>
+                                            </div>
+                                            <div className='item-content'>
+                                                <a href="#" className='item' onClick={() => toggleDropMenu('city')}>
+                                                    Jobs by City <i className="fas fa-chevron-right "></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+                </li>
+                <div className='nav-flex nav-right d-none sign-in'>
+                    <li><a href="#">Sign In</a></li>
+                </div>
+            </ul>
             <ul className="nav-flex nav-right">
                 <li><a href="#" >For Employers</a></li>
                 <li><a href="#">Sign in/Sign up</a></li>
                 <li><a href="#" ><span>EN</span></a></li>
                 <li><a href="#"><span>VI</span></a></li>
-            </ul>
-            <ul className='nav-flex nav-right d-none sign-in'>
-                <li><a href="#" >Sign In</a></li>
             </ul>
         </nav >
     );

@@ -44,7 +44,6 @@ function Filter({ dataJob, onFilterChange }) {
         }
     };
 
-
     const toggleDropdown = (dropdownName) => {
         setOpenDropdown(openDropdown === dropdownName ? false : dropdownName);
     };
@@ -120,6 +119,8 @@ function Filter({ dataJob, onFilterChange }) {
         setSalary([500, value]);
     };
 
+   
+
     const filterJobs = () => {
         return dataJob.filter(job => {
             const levelMatch = selectCheck.length === 0 || selectCheck.includes(job.level);
@@ -140,6 +141,8 @@ function Filter({ dataJob, onFilterChange }) {
     }, [countLevel, countModels, countIndustry]);
 
     useEffect(() => {
+       
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -186,7 +189,6 @@ function Filter({ dataJob, onFilterChange }) {
                                 )}
                             </div>
 
-                            {/* Working Models Dropdown */}
                             <div className="category-item">
                                 <button className="btn-dropdown" onClick={() => toggleDropdown("models")}>
                                     {selectedModels.length === 0 ? (
@@ -215,7 +217,6 @@ function Filter({ dataJob, onFilterChange }) {
                                 )}
                             </div>
 
-                            {/* Salary Dropdown */}
                             <div className="category-item">
                                 <button className="btn-dropdown" onClick={() => toggleDropdown("salary")}>
                                     {showSalary ? (

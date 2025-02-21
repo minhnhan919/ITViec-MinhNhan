@@ -99,7 +99,7 @@ const InfoItViec = ({ dataJob }) => {
                 {selectedJob.top_reasons_to_join?.length > 0 ? (
                   <ul className="pe-5">
                     {selectedJob.top_reasons_to_join.map((reason, index) => (
-                      <li key={index} className="d-block my-3">{reason}</li>
+                      <li key={index} className=" my-3">{reason}</li>
                     ))}
                   </ul>
                 ) : (
@@ -111,7 +111,7 @@ const InfoItViec = ({ dataJob }) => {
                 {selectedJob.job_description?.length > 0 ? (
                   <ul className="ps-4">
                     {selectedJob.job_description.map((item, index) => (
-                      <li key={index} className="my-1">{item}</li>
+                      <li key={index} className="d-block my-1">{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -142,18 +142,7 @@ const InfoItViec = ({ dataJob }) => {
                   <></>
                 )}
               </div>
-              <div className="details-country">
-                <h5 className="fw-bold mt-4">ARIS Vietnam</h5>
-                {selectedJob.benefits?.length > 0 ? (
-                  <ul className="ps-4">
-                    {selectedJob.benefits.map((item, index) => (
-                      <li key={index} className="my-1 w-100">{item}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <></>
-                )}
-              </div>
+           
             </div>
           </div>
         ) : (

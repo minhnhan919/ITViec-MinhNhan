@@ -11,23 +11,25 @@ function Search({ onSearchChange, dataJob }) {
     const [city, setCity] = useState('');
     const [count, setCount] = useState(1);
 
-    const searchJob = () => {
-        // Lọc dữ liệu trên frontend
-        const filteredData = dataJob.filter(job => {
-            const matchesKeyword = search.trim() === "" || job.title.toLowerCase().includes(search.toLowerCase());
-            return matchesKeyword;
-        });
-        // Cập nhật danh sách công việc trong `PageItViec`
-        onSearchChange(filteredData);
+
+    const searchJob = async () => {
+        try {
+            const response = await fetch(`https://67ab39535853dfff53d69e09.mockapi.io/api/v1/cty?title=${search}`);
+            const data = await response.json();
+            onSearchChange(data);
+        } catch (error) {
+            console.error("Error fetching jobs:", error);
+        }
     };
 
-    const searchCity = () => {
-        const filteredData = dataJob.filter(job => {
-            const dataCity = city === '' || job.address.toLowerCase().includes(city.toLowerCase());
-            return dataCity;
-        })
-        onSearchChange(filteredData);
-
+    const searchCity = async () => {
+        try {
+            const response = await fetch(`https://67ab39535853dfff53d69e09.mockapi.io/api/v1/cty?address=${city}`);
+            const data = await response.json();
+            onSearchChange(data);
+        } catch (error) {
+            console.error("Error fetching jobs:", error);
+        }
     }
 
     useEffect(() => {
@@ -53,7 +55,7 @@ function Search({ onSearchChange, dataJob }) {
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Ho Chi Minh'); setIsOpen(false) }}>Ho Chi Minh</a>
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Ha Noi'); setIsOpen(false) }}>Ha Noi</a>
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Da Nang'); setIsOpen(false) }}>Da Nang</a>
-                                <a href="#" className="item-location-city" onClick={() => { setCity('Others'); setIsOpen(false) }}>Others</a>
+                             
                             </div>
                         </div>
                     )}
@@ -112,13 +114,13 @@ function Search({ onSearchChange, dataJob }) {
                             </div>
                             <div className="list-grab">
                                 <ul>
-                                    <li><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
+                                    <li className="d-block"><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
                                         <span>Senior Project Manager (Release Train Engineer)</span>
                                     </li>
-                                    <li><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
+                                    <li className="d-block"><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
                                         <span>StarCamp (Fresher) Quality Engineers - Hanoi</span>
                                     </li>
-                                    <li><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
+                                    <li className="d-block"><img className="me-2" src="https://itviec.com/assets/arrow-right-circle-968116a10ecb9906db796ac0a1e4fae8808504116265fecd17c07f6195685596.svg" alt="icon" />
                                         <span>Quality Engineering Manager</span>
                                     </li>
                                 </ul>

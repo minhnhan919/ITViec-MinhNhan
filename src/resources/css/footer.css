@@ -4,9 +4,7 @@ footer {
 }
 
 .footer-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
     padding: 48px 20px 0 0;
 }
 
@@ -38,10 +36,49 @@ footer {
 }
 
 .footer-copy {
-    margin-left: 15px ;
+    margin-left: 15px;
     border-top: 1px solid gray;
-    padding:15px 0px;
+    padding: 15px 0px;
 }
+
 .li-text:hover {
     opacity: 0.7;
+}
+
+.footer-menu {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .footer-logo-itviec {
+        display: flex;
+        justify-content: center;
+        /* Căn giữa theo chiều ngang */
+        align-items: center;
+        /* Căn giữa theo chiều dọc */
+        flex-direction: column;
+        text-align: center;
+        /* Căn giữa văn bản */
+        width: 100%;
+    }
+
+    .footer-logo-itviec img {
+        text-align: center;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-menu {
+        display: block;
+    }
+
+    .footer-row {
+        display: none;
+    }
+    .footer-contact {
+        width: 100%;
+    }
 }

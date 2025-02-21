@@ -213,7 +213,7 @@ div.container-main:hover {
 .details-why,
 .details-desciption,
 .details-your-skill {
-    border-bottom: 1px dotted gray;
+    border-bottom: 1px solid gray;
 }
 
 @media (max-width: 1024px) {
@@ -240,6 +240,11 @@ div.container-main:hover {
     .attractive {
         display: flex;
         flex-direction: column;
+    }
+    .container-super {
+        width: 100%;
+        margin-left: 20px;
+        padding-right: 0px;
     }
 }
 
