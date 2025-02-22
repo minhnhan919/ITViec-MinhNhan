@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ITViec-MinhNhan/static/css/main.4cd7731d.css",
-    "main.js": "/ITViec-MinhNhan/static/js/main.f7ca1f03.js",
+    "main.css": "/ITViec-MinhNhan/static/css/main.bacafd13.css",
+    "main.js": "/ITViec-MinhNhan/static/js/main.e2ec8f2e.js",
     "static/js/488.782f9f1f.chunk.js": "/ITViec-MinhNhan/static/js/488.782f9f1f.chunk.js",
     "static/media/fa-solid-900.ttf": "/ITViec-MinhNhan/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/ITViec-MinhNhan/static/media/fa-brands-400.1815e00441357e01619e.ttf",
@@ -16,12 +16,12 @@
     "static/media/fa-v4compatibility.ttf": "/ITViec-MinhNhan/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/ITViec-MinhNhan/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/ITViec-MinhNhan/index.html",
-    "main.4cd7731d.css.map": "/ITViec-MinhNhan/static/css/main.4cd7731d.css.map",
-    "main.f7ca1f03.js.map": "/ITViec-MinhNhan/static/js/main.f7ca1f03.js.map",
+    "main.bacafd13.css.map": "/ITViec-MinhNhan/static/css/main.bacafd13.css.map",
+    "main.e2ec8f2e.js.map": "/ITViec-MinhNhan/static/js/main.e2ec8f2e.js.map",
     "488.782f9f1f.chunk.js.map": "/ITViec-MinhNhan/static/js/488.782f9f1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cd7731d.css",
-    "static/js/main.f7ca1f03.js"
+    "static/css/main.bacafd13.css",
+    "static/js/main.e2ec8f2e.js"
   ]
 }
