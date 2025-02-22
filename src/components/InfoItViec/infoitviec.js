@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../../resources/css/infoitviec.css";
 import Pagination from "../Pagination/pagination";
 
 const InfoItViec = ({ dataJob }) => {

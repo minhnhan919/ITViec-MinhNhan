@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import '../../resources/css/filter.css';
 import PopUpFilter from './popupFilter/popupFilter';
 
 function Filter({ dataJob, onFilterChange }) {
@@ -60,12 +59,10 @@ function Filter({ dataJob, onFilterChange }) {
         setCountIndustry(0);
         setCountCheck(0);
     };
-
     const ApplySalary = () => {
         setShowSalary(true);
         setOpenDropdown(false);
     };
-
     const removeCheck = (type) => {
         if (type === 'level') {
             setSelectCheck([]);
@@ -79,7 +76,6 @@ function Filter({ dataJob, onFilterChange }) {
         }
         setCountCheck(countLevel + countModels + countIndustry);
     };
-
     const handleCheckbox = (e, item, type) => {
         e.preventDefault();
         if (e.target.checked) {
@@ -107,7 +103,6 @@ function Filter({ dataJob, onFilterChange }) {
         }
         setCountCheck(countLevel + countModels + countIndustry);
     };
-
     const handleChange = (e) => {
         if (!e || !e.target) return;
 
@@ -118,9 +113,6 @@ function Filter({ dataJob, onFilterChange }) {
 
         setSalary([500, value]);
     };
-
-   
-
     const filterJobs = () => {
         return dataJob.filter(job => {
             const levelMatch = selectCheck.length === 0 || selectCheck.includes(job.level);
@@ -131,7 +123,6 @@ function Filter({ dataJob, onFilterChange }) {
             return levelMatch && modelsMatch && salaryMatch && industryMatch;
         });
     };
-
     useEffect(() => {
         onFilterChange(filterJobs());
     }, [dataJob, selectCheck, selectedModels, salary, selectedIndustry]);
@@ -141,8 +132,6 @@ function Filter({ dataJob, onFilterChange }) {
     }, [countLevel, countModels, countIndustry]);
 
     useEffect(() => {
-       
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -154,8 +143,8 @@ function Filter({ dataJob, onFilterChange }) {
             <div className='bg-job'>
                 <div className="py-5 mb-4 bg-none"></div>
                 <div className="quanity-job">
-                    <div style={{ width: '1350px', margin: '0 auto' }}>
-                        <h2 className="fw-bold">{dataJob.length} IT Jobs in Vietnam</h2>
+                    <div className="quantity-job" style={{ width: '1350px', margin: '0 auto'}}>
+                        <h2 className="fw-bold ">{dataJob.length} IT Jobs in Vietnam</h2>
                     </div>
                     <div className="outer-rectangle d-flex justify-content-between align-items-center mt-3">
                         <div className='category d-flex align-items-center' ref={dropdownRef}>

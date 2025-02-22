@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import '../../resources/css/search.css';
 import grab from '../../resources/img/logo-grap.png';
 import logoGrab from '../../resources/img/grab.png';
 import nab_logo from '../../resources/img/NAB_Logo_RGB_1x1.jpg';
@@ -55,7 +54,7 @@ function Search({ onSearchChange, dataJob }) {
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Ho Chi Minh'); setIsOpen(false) }}>Ho Chi Minh</a>
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Ha Noi'); setIsOpen(false) }}>Ha Noi</a>
                                 <a href="#" className="item-location-city" onClick={() => { setCity('Da Nang'); setIsOpen(false) }}>Da Nang</a>
-                             
+
                             </div>
                         </div>
                     )}

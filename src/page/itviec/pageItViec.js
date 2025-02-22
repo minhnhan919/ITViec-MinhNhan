@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../../resources/css/itviec.css'
 import Filter from "../../components/Filter/filter"
 import Footer from "../../components/footer"
 import Header from "../../components/header"

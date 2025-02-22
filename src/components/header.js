@@ -1,6 +1,6 @@
 import logo from '../resources/img/logo-itviec.png';
 import React, { useEffect, useState } from "react";
-import '../resources/css/header.css'
+
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [AisOpen, setAIsOpen] = useState(false);
@@ -221,7 +221,7 @@ function Header() {
                             isMenuOpen && (
                                 <div className='menu-inner'>
                                     <button className="dropbtn btn-jobs item-content">
-                                        All Jobs 
+                                        All Jobs
                                     </button>
                                     <div className='container-dropdown bg-black'>
                                         <div className="dropdown-content item-dropdown">

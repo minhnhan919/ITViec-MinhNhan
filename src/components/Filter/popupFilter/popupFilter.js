@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../../../resources/css/filter.css';
 
 const levels = [
     { id: 1, name: 'Fresher' },

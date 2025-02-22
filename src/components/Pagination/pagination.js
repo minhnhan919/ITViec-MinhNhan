@@ -1,4 +1,3 @@
-import "../../resources/css/pagination.css";
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
 

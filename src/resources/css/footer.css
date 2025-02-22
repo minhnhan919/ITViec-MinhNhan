@@ -53,13 +53,9 @@ footer {
     .footer-logo-itviec {
         display: flex;
         justify-content: center;
-        /* Căn giữa theo chiều ngang */
         align-items: center;
-        /* Căn giữa theo chiều dọc */
         flex-direction: column;
         text-align: center;
-        /* Căn giữa văn bản */
-        width: 100%;
     }
 
     .footer-logo-itviec img {
@@ -78,6 +74,7 @@ footer {
     .footer-row {
         display: none;
     }
+
     .footer-contact {
         width: 100%;
     }

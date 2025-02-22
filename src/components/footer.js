@@ -1,6 +1,5 @@
 import logo from '../resources/img/logo-itviec.png';
 import React, { useState } from "react";
-import "../resources/css/footer.css";
 function Footer() {
     const [showAbout, setShowAbout] = useState(false);
     const [showCampaign, setShowCampaign] = useState(false);
