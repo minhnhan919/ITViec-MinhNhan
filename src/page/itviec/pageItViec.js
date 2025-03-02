@@ -5,7 +5,7 @@ import Footer from "../../components/footer"
 import Header from "../../components/header"
 import InfoItViec from "../../components/InfoItViec/infoitviec"
 import Search from "../../components/Location/search"
-import Pagination from "../../components/Pagination/pagination"
+
 
 function PageItViec() {
     const [dataJob, setDataJob] = useState([]);
@@ -28,6 +28,7 @@ function PageItViec() {
     return (
         <>
             <Header />
+
             <Search onSearchChange={setFilteredJobs} dataJob={dataJob} />
             <Filter dataJob={dataJob} onFilterChange={setFilteredJobs} />
             <InfoItViec dataJob={filteredJobs} />
